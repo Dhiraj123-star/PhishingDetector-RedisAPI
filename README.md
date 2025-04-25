@@ -7,12 +7,6 @@ This project demonstrates a phishing email classification application using mach
 - **Model Serving (`serve.py`)**: Implements a FastAPI-based service to provide real-time phishing email predictions. Redis caching is used to optimize performance by speeding up repeated requests.
 - **Redis Check (`check_redis.py`)**: A utility script to inspect the Redis database, displaying the number of cached entries and sample predictions.
 
----
-## Application Workflow
-The following diagram illustrates how the application works, including the interaction between the machine learning model, FastAPI, and Redis caching:
-
-![Redis ML applicaiton diagram](image/redisml.svg)
-
 
 ---
 
