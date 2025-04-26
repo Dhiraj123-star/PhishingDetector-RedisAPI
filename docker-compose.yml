@@ -1,8 +1,21 @@
 version: "3.9"
 
 services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
   fastapi-app:
-    image: dhiraj918106/phishing_detector_redisapi
-    pull_policy: always  # Always pull the latest image
+    image: dhiraj918106/phishing_detector_redisapi:latest
+    container_name: fastapi-app
+    restart: unless-stopped
+    depends_on:
+      - redis
     ports:
       - "8000:8000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
