@@ -4,7 +4,10 @@ from tabulate import tabulate
 
 def main():
     # Connect to Redis (ensure Redis is running on localhost:6379)
-    redis_client = redis.Redis(host="localhost", port=6379, db=0, decode_responses=True)
+    redis_client = redis.Redis(
+        # host="localhost", 
+        host="redis",
+        port=6379, db=0, decode_responses=True)
 
     # Retrieve all keys that start with "prediction:"
     keys = redis_client.keys("prediction:*")
